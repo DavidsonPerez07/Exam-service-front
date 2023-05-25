@@ -19,7 +19,8 @@ export class CreateExamComponent {
   questions: Question[];
 
   constructor(private examService: ExamServiceService, private router: Router) {
-
+    this.options = [];
+    this.questions = [];
   }
 
   saveExam() {
@@ -38,7 +39,7 @@ export class CreateExamComponent {
   saveQuestions() {
     this.question.options = this.options;
     this.questions.push(this.question);
-    console.log('pregunta añadida');  
+    console.log('pregunta añadida');
   }
 
   sendToList() {
