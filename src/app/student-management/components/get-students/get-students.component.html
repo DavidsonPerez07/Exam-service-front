@@ -1,0 +1,31 @@
+<evalserv-navigation></evalserv-navigation>
+
+<h2 class="text-center">Lista de estudiantes</h2>
+<div class="container">
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Id</th>
+        <th>Identificación</th>
+        <th>Nombre</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.idStudent}}</td>
+        <td>{{student.idCard}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td>
+          <button (click)="editStudent(student.idStudent)" class="btn btn-primary">
+            Editar
+          </button>
+          <button (click)="deleteStudent(student.idStudent)" class="btn btn-danger" style="margin-left : 10px">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

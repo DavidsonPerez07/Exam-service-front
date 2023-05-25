@@ -1,0 +1,38 @@
+<evalserv-navigation></evalserv-navigation>
+
+<div class="details">
+  <h3>Detalles del examen</h3>
+<div>
+  <div>
+    <label><b>Id: </b> {{exam.idExam}}</label>
+  </div>
+  <div>
+    <label><b>Introducción: </b> {{exam.introduction}}</label>
+  </div>
+  <div>
+    <label><b>Puntaje máximo: </b> {{exam.maxScore}}</label>
+  </div>
+  <div>
+    <label><b>Link: </b> {{exam.examLink}}</label>
+  </div>
+  <div>
+    <label><b>Preguntas: </b>
+      <div *ngFor="let question of exam.questions" id="questions">
+        <label><b>Id: </b> {{question.idQuestion}}</label><br>
+        <label><b>Descripción: </b> {{question.description}}</label><br>
+        <label><b>Valor: </b> {{question.assessment}}</label><br>
+        <label><b>Tipo de pregunta: </b> {{question.questionType}}</label><br>
+        <label><b>Opciones: </b><br>
+          <div *ngFor="let option of question.options" id="options">
+            <label><b>Id: </b> {{option.idOption}}</label><br>
+            <label><b>Descripción: </b> {{option.description}}</label><br>
+            <label><b>Validez: </b> {{option.isCorrect}}</label><br>
+            <hr class="hr"/>
+          </div>
+        </label>
+        <hr class="hr"/>
+      </div>
+    </label>
+  </div>
+</div>
+</div>

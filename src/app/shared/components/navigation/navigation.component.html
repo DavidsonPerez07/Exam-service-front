@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a id="home" class="nav-link" routerLink="/" routerLinkActive="active" role="button" aria-expanded="false">
+        Inicio
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Estudiantes
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/student-management/register-student" routerLinkActive="active">
+            Registar estudiante
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/student-management/get-students" routerLinkActive="active">
+            Ver estudiantes
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Exámenes
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/exam-management/create-exam" routerLinkActive="active">
+            Crear examen
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/exam-management/get-exams" routerLinkActive="active">
+            Ver exámenes
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

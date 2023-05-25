@@ -1,0 +1,182 @@
+<evalserv-navigation></evalserv-navigation>
+
+<div class="col-md-6 offset-md-3" id="creacion">
+  <h3 class="text-center">Crear examen</h3>
+  <form (ngSubmit)="onSubmit()" #examForm="ngForm">
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Introducción</label>
+        <textarea class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        [(ngModel)]="exam.introduction"
+        name="introduction"
+        required
+        placeholder="Ingrese la introducción del examen"
+        #introduction="ngModel"></textarea>
+
+        <div class="alert alert-danger" *ngIf="introduction.invalid && (introduction.dirty || introduction.touched)">
+          <div *ngIf="introduction.errors.required">
+            Ingrese la introducción
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Puntaje máximo: </label>
+      <input
+      type="number"
+      class="form-control"
+      id="maxScore"
+      [(ngModel)]="exam.maxScore"
+      name="maxScore"
+      required
+      placeholder="Defina el puntaje máximo"
+      #maxScore="ngModel">
+
+      <div class="alert alert-danger" *ngIf="maxScore.invalid && (maxScore.dirty || maxScore.touched)">
+        <div *ngIf="maxScore.errors.required">
+          Ingrese el puntaje máximo del examen
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Link: </label>
+      <input
+      type="text"
+      class="form-control"
+      id="examLink"
+      [(ngModel)]="exam.examLink"
+      name="examLink"
+      required
+      placeholder="Ingrese el link para tomar el examen"
+      #examLink="ngModel">
+
+      <div class="alert alert-danger" *ngIf="examLink.invalid && (examLink.dirty || examLink.touched)">
+        <div *ngIf="examLink.errors.required">
+          Ingrese el link del examen
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Preguntas: </label>
+      <div id="creacion-preguntas">
+        <h3 class="text-center">Crear pregunta</h3>
+        <form (ngSubmit)="saveQuestions()" #questionForm="ngForm">
+          <div class="form-group">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+              <textarea class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              [(ngModel)]="question.description"
+              name="descripcion"
+              required
+              placeholder="Ingrese la descripcion de la pregunta"
+              #questionDescription="ngModel"></textarea>
+
+              <div class="alert alert-danger" *ngIf="questionDescription.invalid && (questionDescription.dirty || questionDescription.touched)">
+                <div *ngIf="questionDescription.errors.required">
+                  Ingrese la descripcion
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Valor: </label>
+            <input
+            type="number"
+            class="form-control"
+            id="assessment"
+            [(ngModel)]="question.assessment"
+            name="assessment"
+            required
+            placeholder="Defina el valor de la pregunta"
+            #assessment="ngModel">
+
+            <div class="alert alert-danger" *ngIf="assessment.invalid && (assessment.dirty || assessment.touched)">
+              <div *ngIf="assessment.errors.required">
+                Ingrese el valor de la pregunta
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Tipo de pregunta: </label>
+            <div class="form-check">
+              <input #onlyAnswer="ngModel" class="form-check-input" value="ONLYANSWER" [(ngModel)]="question.questionType" type="radio" name="question-type" id="ONLYANSWER">
+              <label class="form-check-label" for="ONLYANSWER">
+                Única respuesta
+              </label>
+            </div>
+            <div class="form-check">
+              <input #multiAnswer="ngModel" class="form-check-input" value="MULTIANSWER" [(ngModel)]="question.questionType" type="radio" name="question-type" id="MULTIANSWER">
+              <label class="form-check-label" for="MULTIANSWER">
+                Selección multiple
+              </label>
+            </div>
+            <div class="form-check">
+              <input #openAnswer="ngModel" class="form-check-input" value="OPENANSWER" [(ngModel)]="question.questionType" type="radio" name="question-type" id="OPENANSWER">
+              <label class="form-check-label" for="OPENANSWER">
+                Respuesta abierta
+              </label>
+            </div>
+          </div>
+
+          <div *ngIf="question.questionType === 'ONLYANSWER' || question.questionType === 'MULTIANSWER'">
+            <div id="creacion-opciones">
+              <h3 class="text-center">Crear opcion</h3>
+              <form (ngSubmit)="saveOptions()" #optionForm="ngForm">
+                <div class="form-group">
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                    <textarea class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    [(ngModel)]="option.description"
+                    name="Odescripcion"
+                    required
+                    placeholder="Ingrese la descripcion de la opcion"
+                    #optionDescription="ngModel"></textarea>
+
+                    <div class="alert alert-danger" *ngIf="optionDescription.invalid && (optionDescription.dirty || optionDescription.touched)">
+                      <div *ngIf="optionDescription.errors.required">
+                        Ingrese la descripcion
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Validez </label>
+                  <div class="form-check">
+                    <input class="form-check-input" value="true" [(ngModel)]="option.isCorrect" type="radio" name="is-correct" id="correct">
+                    <label class="form-check-label" for="is-correct">
+                      Correcta
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" value="false" [(ngModel)]="option.isCorrect" type="radio" name="is-correct" id="incorrect">
+                    <label class="form-check-label" for="incorrect">
+                      Incorrecta
+                    </label>
+                  </div>
+                </div>
+
+                <button class="btn btn-success mt-2 mb-2" [disabled]="!optionForm.form.valid">Añadir opcion</button>
+              </form>
+            </div>
+          </div>
+
+          <button class="btn btn-success mt-2" [disabled]="!questionForm.form.valid">Añadir pregunta</button>
+        </form>
+      </div>
+    </div>
+
+    <button class="btn btn-success mt-2" [disabled]="!examForm.form.valid">Crear</button>
+  </form>
+</div>

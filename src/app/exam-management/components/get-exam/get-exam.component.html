@@ -1,0 +1,29 @@
+<evalserv-navigation></evalserv-navigation>
+
+<h2 class="text-center">Lista de exámenes</h2>
+<div class="container">
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Id</th>
+        <th>Introducción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exam of exams">
+        <td>{{exam.idExam}}</td>
+        <td>{{exam.introduction}}</td>
+        <div id="buttons">
+          <td>
+            <button (click)="getExamDetails(exam.idExam)" class="btn btn-primary">
+              Detalles
+            </button>
+            <button (click)="deleteExam(exam.idExam)" class="btn btn-danger" style="margin-left : 10px">
+              Eliminar
+            </button>
+          </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

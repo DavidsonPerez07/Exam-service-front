@@ -1,0 +1,64 @@
+<evalserv-navigation></evalserv-navigation>
+
+<div class="col-md-6 offset-md-3" id="registro">
+  <h3 class="text-center">Registrar estudiante</h3>
+  <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+    <div class="form-group">
+      <label>Identificación: </label>
+      <input type="text"
+      class="form-control"
+      id="id-card"
+      [(ngModel)]="student.idCard"
+      name="idCard"
+      required
+      placeholder="Digite la identificación del estudiante"
+      #idCard="ngModel">
+
+      <div class="alert alert-danger" *ngIf="idCard.invalid && (idCard.dirty || idCard.touched)">
+        <div *ngIf="idCard.errors.required">
+          Digite la identificación del estudiante
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre: </label>
+      <input
+      type="text"
+      class="form-control"
+      id="name"
+      [(ngModel)]="student.name"
+      name="name"
+      required
+      placeholder="Digite la identificación del estudiante"
+      #name="ngModel">
+
+      <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.errors.required">
+          Digite el nombre del estudiante
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email: </label>
+      <input
+      type="text"
+      class="form-control"
+      id="email"
+      [(ngModel)]="student.email"
+      name="email"
+      required
+      placeholder="Digite el email del estudiante"
+      #email="ngModel">
+
+      <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors.required">
+          Digite el email del estudiante
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-success mt-2" [disabled]="!studentForm.form.valid">Registrar</button>
+  </form>
+</div>
