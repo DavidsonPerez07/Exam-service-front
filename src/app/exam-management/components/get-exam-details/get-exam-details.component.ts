@@ -22,6 +22,7 @@ export class GetExamDetailsComponent implements OnInit{
     this.exam = new Exam();
     this.examService.getOneExam(this.idExam).subscribe(data => {
       this.exam = data;
+      this.exam.examLink = "http://localhost:4200/exam-presentation/take-exam" + "/" + this.idExam;
     })
   }
 

@@ -1,0 +1,56 @@
+#presentacion {
+  display: block;
+}
+
+.questionSeparator {
+  width: 60%;
+}
+
+h3 {
+  margin-top: 30px;
+  font-size: 30px;
+  font: bold;
+}
+
+#formPres {
+  width: 70%;
+  /* display: flex; */
+}
+
+.form-group {
+  margin-right: 10px;
+}
+
+.form-group input {
+  width: 16em;
+}
+
+form button {
+  height: 40px;
+}
+
+.takeExam {
+  width: 100%;
+  margin-top: 100px;
+  font-size: 16px;
+  justify-content: left;
+  display: block;
+}
+
+.takeExam div {
+  margin: 10px 10px;
+}
+
+.takeExam textarea {
+  width: 50%;
+}
+
+.navbar h3 {
+  color: aliceblue;
+  margin-left: 30px;
+  margin-bottom:30px;
+}
+
+.navbar {
+  height: 70px;
+}

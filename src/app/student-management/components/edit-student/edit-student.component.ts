@@ -24,13 +24,13 @@ export class EditStudentComponent implements OnInit{
     }, error => console.log(error));
   }
 
-  goToStudentList() {
+  sendToList() {
     this.router.navigate(['/student-management/get-students']);
   }
 
   onSubmit() {
     this.studentService.editStudent(this.idStudent, this.student).subscribe(data => {
-      this.goToStudentList();
+      this.sendToList();
     }, error => console.log(error));
   }
 }

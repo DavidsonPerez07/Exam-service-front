@@ -16,3 +16,13 @@ form {
 label {
   margin-bottom: 5px;
 }
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}

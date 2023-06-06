@@ -24,10 +24,10 @@ export class ExamServiceService {
   }
 
   getOneExam(idExam: number): Observable<Exam> {
-    return this.httpClient.get<Exam>(`${this.getURL}?idExam=${idExam}`)
+    return this.httpClient.get<Exam>(`${this.getURL}?idExam=${idExam}`);
   }
 
   deleteExam(idExam: number): Observable<Object> {
-    return this.httpClient.delete(`${this.deleteURL}?idExam=${idExam}`)
+    return this.httpClient.delete(`${this.deleteURL}?idExam=${idExam}`);
   }
 }
