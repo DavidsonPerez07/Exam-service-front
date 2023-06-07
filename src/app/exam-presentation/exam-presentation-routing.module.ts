@@ -9,7 +9,7 @@ const routes: Routes = [
     component: TakeExamComponent
   },
   {
-    path: 'show-exam-presentation/:idStudent/:idExam',
+    path: 'show-exam-presentation/:idExamPresentation',
     component: ShowExamPresentationComponent
   }
 ];
