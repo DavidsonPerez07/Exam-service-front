@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     TakeExamComponent,
-    ShowExamPresentationComponent,
+    ShowExamPresentationComponent
   ],
   imports: [
     CommonModule,

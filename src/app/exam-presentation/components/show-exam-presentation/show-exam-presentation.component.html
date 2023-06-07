@@ -1,3 +1,54 @@
-<evalserv-navigation></evalserv-navigation>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <h3 class="text-center">Revisión del examen</h3>
+</nav>
 
-<p>show-exam-presentation works!</p>
+<div class="takeExam">
+  <div>
+    <div>
+      Estudiante {{ student.name }}
+      <br />
+      <br />
+    </div>
+    <div>
+      {{ exam.introduction }}
+      <br />
+      <br />
+    </div>
+    <div>
+      Puntaje: {{ examPresentation.score }}/{{ exam.maxScore }}
+      <hr />
+      <br />
+    </div>
+    <div *ngFor="let question of exam.questions">
+      <div *ngIf="question.questionType == 'ONLYANSWER'" class="mt-2 mb-2">
+        {{ question.description }}
+        <div *ngFor="let option of question.options">
+          <div class="form-check">
+            <label class="form-check-label" for="optionRB">
+              {{ option.description }}      {{ validez }}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="question.questionType == 'MULTIANSWER'" class="mt-2 mb-2">
+        {{ question.description }}
+        <div *ngFor="let option of question.options">
+          <div class="form-check">
+            <label class="form-check-label" for="optionCheck">
+              {{ option.description }}      {{ validez }}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="question.questionType == 'OPENANSWER'" class="mt-2 mb-2">
+        {{ question.description }}
+        <div class="container">
+          <div class="textbox">
+            <div class="textbox--border">
+              {{ answer.openAnswer }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="questionSeparator" />
+    </div>

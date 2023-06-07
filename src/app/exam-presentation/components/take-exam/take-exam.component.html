@@ -102,11 +102,32 @@
         </div>
 
         <button
+          type="button"
           class="btn btn-success mt-2"
-          (click)="(examPresentationForm.form.valid)"
+          data-bs-toggle="modal"
+          data-bs-target="#modalSend"
         >
           Enviar examen
         </button>
+
+        <div
+          class="modal fade"
+          id="modalSend"
+          tabindex="-1"
+          aria-labelledby="modalSendLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                ¿Está seguro de que desea enviar su examen?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" (click)="(examPresentationForm.form.valid)">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </form>
