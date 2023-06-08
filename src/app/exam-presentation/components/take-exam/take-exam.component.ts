@@ -39,6 +39,15 @@ export class TakeExamComponent implements OnInit{
     });
   }
 
+  examExist(): boolean {
+    if (this.exam !== null) {
+      return true
+    }
+    else {
+      return false;
+    }
+  }
+
   getStudent(idStudent: number): Student {
     this.studentService.getOneStudent(idStudent).subscribe(data => {
       this.student = data;
@@ -62,7 +71,7 @@ export class TakeExamComponent implements OnInit{
     this.examPresentation.examId = this.exam.idExam;
     this.examPresentationService.saveExamPresentation(this.examPresentation).subscribe(data => {
       console.log(data);
-      this.sendToReview();
+      this.showExamPresentation(this.examPresentation.idExamPresentation);
     }, error => console.log(error));
   }
 
@@ -83,12 +92,9 @@ export class TakeExamComponent implements OnInit{
     this.showExamPresentation(this.examPresentation.idExamPresentation);
   }
 
-  sendToReview() {
-    this.router.navigate(['/exam-presentation/show-exam-presentation/:idExam/:idStudent']);
-  }
-
   ngOnInit(): void {
     this.idExam = this.route.snapshot.params['idExam'];
+    this.showExam();
   }
 
   showExamPresentation(idExamPresentation: number) {

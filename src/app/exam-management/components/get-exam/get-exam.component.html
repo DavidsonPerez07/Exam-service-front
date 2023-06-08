@@ -7,12 +7,15 @@
       <tr>
         <th>Id</th>
         <th>Introducción</th>
+        <th>Puntaje máximo</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let exam of exams">
         <td>{{exam.idExam}}</td>
         <td>{{exam.introduction}}</td>
+        <td>{{exam.maxScore}}</td>
         <div id="buttons">
           <td>
             <button (click)="getExamDetails(exam.idExam)" class="btn btn-primary">

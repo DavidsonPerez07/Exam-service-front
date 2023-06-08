@@ -43,11 +43,10 @@ export class CreateExamComponent implements OnInit{
   saveOptions(form: NgForm) {
     this.options.push(this.option);
     console.log('Opcion añadida');
-    console.log(this.option.description);
-    this.cleanOption(form);
-    this.option = new Option();
     console.log(this.option);
     console.log('El array opciones: ' + this.options);
+    this.cleanOption(form);
+    this.option = new Option();
     this.mostrarAviso();
   }
 
@@ -55,11 +54,10 @@ export class CreateExamComponent implements OnInit{
     this.question.options = this.options;
     this.questions.push(this.question);
     console.log('Pregunta añadida');
-    console.log(this.question.description);
+    console.log(this.question);
+    console.log('El array preguntas: ' + this.questions);
     this.cleanQuestion(form);
     this.question = new Question();
-    console.log(this.question.description);
-    console.log('El array preguntas: ' + this.questions);
     this.mostrarAvisoP();
   }
 
@@ -72,7 +70,7 @@ export class CreateExamComponent implements OnInit{
 
   mostrarAvisoP() {
     this.avisoP = true;
-    this.avisoPTimeout.setTimeout(() => {
+    this.avisoPTimeout = setTimeout(() => {
       this.avisoP = false;
     }, 1000);
   }
@@ -89,6 +87,9 @@ export class CreateExamComponent implements OnInit{
   ngOnDestroy() {
     if (this.avisoTimeout) {
       clearTimeout(this.avisoTimeout);
+    }
+    if (this.avisoPTimeout) {
+      clearTimeout(this.avisoPTimeout);
     }
   }
 

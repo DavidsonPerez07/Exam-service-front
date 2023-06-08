@@ -3,7 +3,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-#buttons {
-  display: flex;
-  justify-content: center;
+.container {
+  width: 80%;
 }
